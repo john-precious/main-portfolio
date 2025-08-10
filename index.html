@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>john precious</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+      
+</head>
+<body>
+    <header>
+  <nav class="navbar">
+    <div class="logo">John precious<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Service</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#skills-testimonials">Skills</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+</header>
+  
+<!--home section-->
+<section class="home" id="home">
+    <div class="home-content">
+      <h1>Hi, I'm <span>John Precious</span></h1>
+      <h2><span id="typed-text"></span></h2>
+      <p>
+        I'm a passionate Front-End Developer building responsive, interactive, and beautiful websites.
+      </p>
+      <div class="home-buttons">
+        <a href="#contact" class="btn">Hire Me</a>
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
+      </div>
+    </div>
+    <div class="home-image">
+      <img src="../port build/precious.jpg" alt="Portfolio Image">
+    </div>
+  </section>
+  
+<!--About section-->
+<section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Hello! I’m a passionate Front-End Developer dedicated to creating beautiful, responsive, and interactive websites. With a strong foundation in HTML, CSS, and JavaScript, I bring ideas to life with clean and efficient code.
+          </p>
+          <p>
+            I specialize in building modern user interfaces with a keen eye for design and usability. Constantly learning and exploring new technologies to improve my craft.
+          </p>
+          <a href="#contact-section" class="btn btn-primary">Hire Me</a>
+        </div>
+        <div class="about-image">
+          <img src="https://th.bing.com/th/id/OIP.d1aGcWWIAWfekBFDZ6SSvgHaE8?w=241&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="About Me Image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--service section-->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Web Development</h3>
+          <p>Building responsive, modern websites tailored to your needs.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Designing user-friendly interfaces with great user experience.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>JavaScript Animations</h3>
+          <p>Adding engaging animations and interactivity to your projects.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Mobile Optimization</h3>
+          <p>Ensuring your site looks perfect on all devices and screens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!--projects section-->
+  <section class="projects-section" id="project">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy1.jpeg" alt="Project 1">
+        </div>
+        <div class="project-info">
+          <h3>bright future academy</h3>
+          <p class="project-description">school website</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://brightfu.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy2.jpeg" alt="Project 2">
+        </div>
+        <div class="project-info">
+          <h3>ikubs footwear</h3>
+          <p class="project-description">simple E-comerce site</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://ikubs.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+            </div>
+      
+
+             <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy3.jpeg" alt="Project 3">
+        </div>
+        <div class="project-info">
+          <h3>Medicacare</h3>
+          <p class="project-description">A Hospital land page</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://medicacar.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+      </div>
+
+       <!-- Project 4 -->
+       <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy4.jpeg" alt="Project 4">
+        </div>
+        <div class="project-info">
+          <h3>prex fx</h3>
+          <p class="project-description">A broker website real-time analytics and live market</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://brilliant-cuchufli-9e2c0d.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+      </div>
+      
+       <!-- Project 5 -->
+       <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy5.jpeg" alt="Project 5">
+        </div>
+        <div class="project-info">
+          <h3>brokerpro</h3>
+          <p class="project-description">a simple broker page with blog/news</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://brokerpro.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+      </div>
+      
+       <!-- Project 6 -->
+       <div class="project-card">
+        <div class="project-media">
+          <video class="project-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+          </video>
+          <img class="project-image" src="../port build/prechy6.jpeg "alt="Project 6">
+        </div>
+        <div class="project-info">
+          <h3>GlobalTrust bank</h3>
+          <p class="project-description">A demo home page of an online banking</p>
+          <div class="project-tags">
+            <span>html</span>
+            <span>css</span>
+            <span>JavaScript</span>
+          </div>
+          <a href="https://venerable-kringle-27aba1.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
+            <span>View Case Study</span>
+            <svg><!-- arrow icon --></svg>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!--skills/ testimonies section-->
+    <section class="skills-testimonials" id="skills-testimonials">
+      <div class="floating-element circle" style="top: 10%; left: 5%;"></div>
+      <h2 class="section-title">Skills & Testimonials</h2>
+
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Skills Slide -->
+          <div class="carousel-slide skills-slide">
+            <h3>My Skills</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-html5"></i>
+                </div>
+                <h4 class="skill-name">HTML5</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="95"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-css3-alt"></i>
+                </div>
+                <h4 class="skill-name">CSS3</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="90"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-js"></i>
+                </div>
+                <h4 class="skill-name">JavaScript</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+              </div>
+
+
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-react"></i>
+                </div>
+                <h4 class="skill-name">React</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="50"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <h4 class="skill-name">Github</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="80"></div>
+                </div>
+              </div>
+
+
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fab fa-git"></i>
+                </div>
+                <h4 class="skill-name">git</h4>
+                <div class="skill-level">
+                  <div class="skill-progress" data-level="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonials Slide -->
+          <div class="carousel-slide testimonials-slide">
+            <h3>Client Testimonials</h3>
+            <div class="testimonials-container">
+              <div class="testimonial active">
+                <div class="testimonial-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                  "Working with this developer was an absolute pleasure. They
+                  delivered our project ahead of schedule and the quality
+                  exceeded our expectations. Their attention to detail and
+                  problem-solving skills are truly exceptional."
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="Sarah Johnson"
+                    class="author-avatar"
+                  />
+                  <div class="author-info">
+                    <h4>Sarah Johnson</h4>
+                    <p>CEO, TechSolutions Inc.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <div class="testimonial-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">
+                  "I've worked with many developers over the years, but few have
+                  the combination of technical expertise and communication
+                  skills like this professional. They transformed our vague
+                  ideas into a beautiful, functional application."
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Michael Chen"
+                    class="author-avatar"
+                  />
+                  <div class="author-info">
+                    <h4>Michael Chen</h4>
+                    <p>Product Manager, InnovateCo</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial">
+                <div class="testimonial-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                  "The website they built for us increased our conversion rate
+                  by 40%! Not only is it visually stunning, but the performance
+                  optimization is remarkable. We'll definitely be working with
+                  them again on future projects."
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="Emma Rodriguez"
+                    class="author-avatar"
+                  />
+                  <div class="author-info">
+                    <h4>Emma Rodriguez</h4>
+                    <p>Marketing Director, BrightIdeas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-nav">
+              <button class="testimonial-prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="testimonial-next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <div class="nav-dot active" data-slide="0"></div>
+          <div class="nav-dot" data-slide="1"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--contact section-->
+    <section class="contact-section" id="contact-section">
+      <!-- Decorative floating elements -->
+      <div class="floating-element circle" style="top: 10%; left: 5%;"></div>
+      <div class="floating-element triangle" style="bottom: 15%; right: 8%;"></div>
+      
+      <div class="section-header">
+          <h2>Get In Touch</h2>
+          <p>Have a project in mind or want to collaborate? Feel free to reach out! I'm always open to discussing new opportunities and creative ideas.</p>
+      </div>
+      
+      <div class="contact-container">
+          <div class="contact-info">
+              <div class="info-box">
+                  <div class="info-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="info-details">
+                      <h3>Location</h3>
+                      <p>Edo state, NIgeria</p>
+                  </div>
+              </div>
+              
+              <div class="info-box">
+                  <div class="info-icon">
+                      <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="info-details">
+                      <h3>Email</h3>
+                      <a href="mailto:preciousjohnemeka2022@gmail.com">preciousjohnemeka2022@gmail.com</a>
+                  </div>
+              </div>
+              
+              <div class="info-box">
+                  <div class="info-icon">
+                      <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="info-details">
+                      <h3>Phone</h3>
+                      <a href="tel:+2349039342965">+234 (903) 934-2965</a>
+                  </div>
+              </div>
+              
+              <div class="social-links">
+                  <a href="https://x.com/PreciousJo52290" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                  <a href="https://github.com/john-precious" aria-label="Github"><i class="fab fa-github"></i></a>
+                  <a href="www.linkedin.com/in/john-precious-235445289" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+          </div>
+          
+          <div class="contact-form">
+              <form id="contactForm">
+                  <div class="form-group">
+                      <label for="name">Your Name</label>
+                      <input type="text" id="name" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" id="email" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="subject">Subject</label>
+                      <input type="text" id="subject" class="form-control" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="message">Your Message</label>
+                      <textarea id="message" class="form-control" required></textarea>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">
+                      Send Message <i class="fas fa-paper-plane"></i>
+                  </button>
+              </form>
+          </div>
+      </div>
+  </section>
+
+
+<!--footer section-->
+<footer class="portfolio-footer">
+  <!-- Animated gradient border -->
+  <div class="footer-border"></div>
+
+  <div class="footer-content">
+    <!-- Social Links -->
+    <div class="footer-social">
+      <a href="https://x.com/PreciousJo52290" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+      <a href="https://github.com/john-precious" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="www.linkedin.com/in/john-precious-235445289" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <!-- Copyright + Fun CTA -->
+    <div class="footer-meta">
+      <p>© 2025 John Precious. Crafted with <span class="heart">♥️</span> and too much coffee.</p>
+      <button class="footer-cta">Hire Me!</button>
+    </div>
+
+    <!-- Back-to-top arrow (animated) -->
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
