@@ -143,9 +143,9 @@
     text-align: center;
   }
   .home-image img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 60px;
     animation: bounce 3s infinite;
   }
   
@@ -1263,6 +1263,7 @@
   transform: translateY(-5px);
   background: #6e3aff;
 }
+
 
 
 
