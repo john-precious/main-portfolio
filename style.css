@@ -145,7 +145,7 @@
   .home-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 60px;
+    border-radius: 50%;
     animation: bounce 3s infinite;
   }
   
@@ -1263,6 +1263,7 @@
   transform: translateY(-5px);
   background: #6e3aff;
 }
+
 
 
 
