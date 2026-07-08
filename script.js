@@ -1,228 +1,165 @@
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
+/* =========================================
+   JOHN PRECIOUS · PORTFOLIO — SCRIPT 2025
+========================================= */
+
+/* ── THEME TOGGLE ── */
+const html       = document.documentElement;
+const themeBtn   = document.getElementById('themeToggle');
+const themeIcon  = document.getElementById('themeIcon');
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  localStorage.setItem('theme', theme);
+}
+
+// Auto: match OS, allow manual override
+const savedTheme  = localStorage.getItem('theme');
+const osPrefers   = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+applyTheme(savedTheme || osPrefers);
+
+themeBtn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+});
+
+// Listen for OS preference changes (only if no manual override stored)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('theme')) {
+    applyTheme(e.matches ? 'dark' : 'light');
   }
-  
+});
 
 
-  //Home section
-  const roles = ["Front-End Developer", "UI Designer", "Web Enthusiast"];
-let i = 0, j = 0, currentRole = "", isDeleting = false;
-const typedText = document.getElementById("typed-text");
+/* ── NAVBAR SCROLL SHADOW ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+});
+
+
+/* ── MOBILE MENU ── */
+function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+}
+
+// Close on nav link click
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+
+/* ── TYPEWRITER ── */
+const roles = [
+  'Frontend Developer',
+  'UI/UX Designer',
+  'Flutter Developer',
+  'Fintech Builder'
+];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const typedEl = document.getElementById('typed-text');
 
 function typeEffect() {
-  if (i < roles.length) {
- if (!isDeleting && j <= roles[i].length) {
-      currentRole = roles[i].substring(0, j++);
-    } else if (isDeleting && j >= 0) {
-      currentRole = roles[i].substring(0, j--);
-    }
-
-    typedText.textContent = currentRole;
-
-    if (j === roles[i].length) isDeleting = true;
-    if (j === 0 && isDeleting) {
-      isDeleting = false;
-      i = (i + 1) % roles.length;
-    }
-
-    setTimeout(typeEffect, isDeleting ? 60 : 100);
+  if (!typedEl) return;
+  const current = roles[roleIdx];
+  if (deleting) {
+    typedEl.textContent = current.substring(0, charIdx--);
+    if (charIdx < 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+    setTimeout(typeEffect, 55);
+  } else {
+    typedEl.textContent = current.substring(0, charIdx++);
+    if (charIdx > current.length) { deleting = true; setTimeout(typeEffect, 1400); return; }
+    setTimeout(typeEffect, 95);
   }
 }
 typeEffect();
 
 
-//project section
-// Intersection Observer for animations
-const projectCards = document.querySelectorAll('.project-card');
+/* ── SCROLL REVEAL ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger children inside containers
+      const delay = entry.target.dataset.delay || 0;
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-const observer = new IntersectionObserver((entries) => {
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  revealObserver.observe(el);
+});
+
+
+/* ── SKILL BARS ── */
+const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
+      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+        const lvl = bar.getAttribute('data-level');
+        setTimeout(() => { bar.style.width = lvl + '%'; }, 200);
+      });
+      skillObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.2 });
 
-projectCards.forEach(card => {
-  observer.observe(card);
-});
-
-// Video hover effect for touch devices
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('touchstart', function() {
-    const video = this.querySelector('.project-video');
-    if (video) {
-      video.style.opacity = 1;
-      this.querySelector('.project-image').style.opacity = 0;
-    }
-  });
-});
+const skillsSection = document.querySelector('.skills');
+if (skillsSection) skillObserver.observe(skillsSection);
 
 
-//skills and testimonies section
- // Carousel Navigation
- const track = document.querySelector('.carousel-track');
- const slides = document.querySelectorAll('.carousel-slide');
- const dots = document.querySelectorAll('.nav-dot');
- let currentSlide = 0;
+/* ── CONTACT FORM ── */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.submit-btn');
+    const original = btn.innerHTML;
 
- // Initialize
- function goToSlide(index) {
-     track.style.transform = `translateX(-${index * 100}%)`;
-     currentSlide = index;
+    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending…';
+    btn.disabled = true;
 
-     // Update dots
-     dots.forEach(dot => dot.classList.remove('active'));
-     dots[index].classList.add('active');
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+      contactForm.reset();
 
-     // Animate skills when skills slide is active
-     if (index === 0) {
-         animateSkills();
-     }
- }
-
- // Dot click handlers
- dots.forEach(dot => {
-     dot.addEventListener('click', function() {
-         const slideIndex = parseInt(this.getAttribute('data-slide'));
-         goToSlide(slideIndex);
-     });
- });
-
- // Auto-rotate carousel (optional)
- let carouselInterval = setInterval(() => {
-     const nextSlide = (currentSlide + 1) % slides.length;
-     goToSlide(nextSlide);
- }, 8000);
-
- // Pause on hover
- const carouselContainer = document.querySelector('.carousel-container');
- carouselContainer.addEventListener('mouseenter', () => {
-     clearInterval(carouselInterval);
- });
-
- carouselContainer.addEventListener('mouseleave', () => {
-     carouselInterval = setInterval(() => {
-         const nextSlide = (currentSlide + 1) % slides.length;
-         goToSlide(nextSlide);
-     }, 8000);
- });
-
- // Testimonial Navigation
- const testimonials = document.querySelectorAll('.testimonial');
- let currentTestimonial = 0;
-
- function showTestimonial(index) {
-     testimonials.forEach(testimonial => testimonial.classList.remove('active', 'prev', 'next'));
-
-     currentTestimonial = index;
-
-     // Set classes for animation
-     testimonials[index].classList.add('active');
-
-     const prevIndex = (index - 1 + testimonials.length) % testimonials.length;
-     const nextIndex = (index + 1) % testimonials.length;
-
-     testimonials[prevIndex].classList.add('prev');
-     testimonials[nextIndex].classList.add('next');
- }
-
- document.querySelector('.testimonial-prev').addEventListener('click', () => {
-     const newIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-     showTestimonial(newIndex);
- });
-
- document.querySelector('.testimonial-next').addEventListener('click', () => {
-     const newIndex = (currentTestimonial + 1) % testimonials.length;
-     showTestimonial(newIndex);
- });
-
- // Auto-rotate testimonials (optional)
- let testimonialInterval = setInterval(() => {
-     const newIndex = (currentTestimonial + 1) % testimonials.length;
-     showTestimonial(newIndex);
- }, 5000);
-
- // Animate skills progress bars
- function animateSkills() {
-     const skillItems = document.querySelectorAll('.skill-item');
-     const progressBars = document.querySelectorAll('.skill-progress');
-
-     skillItems.forEach((item, index) => {
-         setTimeout(() => {
-             item.classList.add('animate');
-         }, index * 150);
-     });
-
-     progressBars.forEach(bar => {
-         const level = bar.getAttribute('data-level');
-         bar.style.width = `${level}%`;
-     });
- }
-
- // Initialize on page load
- window.addEventListener('load', () => {
-     animateSkills();
-     showTestimonial(0);
- });
-
-
-
- //contact section
- document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contactForm');
-  
-  form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Here you would typically send the form data to a server
-      console.log('Form submitted:', { name, email, subject, message });
-      
-      // Show success animation
-      const submitBtn = form.querySelector('.submit-btn');
-      submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      submitBtn.style.backgroundColor = '#4BB543';
-      
-      // Reset form after 2 seconds
       setTimeout(() => {
-          form.reset();
-          submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-          submitBtn.style.backgroundColor = '';
-      }, 2000);
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }, 1500);
   });
-  
-  // Add animation to form elements on focus
-  const formControls = document.querySelectorAll('.form-control');
-  formControls.forEach(control => {
-      control.addEventListener('focus', function() {
-          this.parentElement.style.transform = 'scale(1.02)';
+}
+
+
+/* ── ACTIVE NAV LINK ON SCROLL ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + entry.target.id) {
+          link.classList.add('active');
+        }
       });
-      
-      control.addEventListener('blur', function() {
-          this.parentElement.style.transform = 'scale(1)';
-      });
+    }
   });
-});
+}, { threshold: 0.4 });
 
-
-//FOOTER!!
-// Show/hide back-to-top arrow on scroll
-const backToTop = document.querySelector('.back-to-top');
-
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
-    backToTop.classList.add('visible');
-  } else {
-    backToTop.classList.remove('visible');
-  }
-});
-
-
-
-
+sections.forEach(s => sectionObserver.observe(s));
