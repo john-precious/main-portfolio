@@ -1,550 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4440878126579014"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>john precious</title>
-    <link rel="stylesheet" href="style.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-      
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="John Precious — Frontend Developer crafting responsive, interactive web experiences with HTML, CSS, JavaScript, React & Flutter." />
+  <meta property="og:title" content="John Precious · Frontend Developer" />
+  <meta property="og:description" content="Portfolio of John Precious — Frontend Developer based in Nigeria." />
+  <meta property="og:image" content="assets/precious.jpg" />
+  <title>John Precious · Frontend Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header>
-  <nav class="navbar">
-    <div class="logo">John precious<span>.</span></div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Service</a></li>
-      <li><a href="#project">Projects</a></li>
-      <li><a href="#skills-testimonials">Skills</a></li>
-      <li><a href="#contact-section">Contact</a></li>
-    </ul>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
 
-</header>
-  
-<!--home section-->
-<section class="home" id="home">
-    <div class="home-content">
-      <h1>Hi, I'm <span>John Precious</span></h1>
-      <h2><span id="typed-text"></span></h2>
-      <p>
-        I'm a passionate Front-End Developer building responsive, interactive, and beautiful websites.
-      </p>
-      <div class="home-buttons">
-        <a href="#contact" class="btn">Hire Me</a>
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="logo">JP<span class="dot">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun" id="themeIcon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content reveal">
+      <span class="hero-eyebrow">Available for work</span>
+      <h1 class="hero-title">Hi, I'm <br/><span class="gradient-text">John Precious</span></h1>
+      <h2 class="hero-subtitle"><span id="typed-text"></span><span class="cursor">|</span></h2>
+      <p class="hero-desc">I build fast, beautiful, responsive web experiences — from fintech dashboards to landing pages and mobile apps.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Hire Me</a>
+        <a href="#projects" class="btn btn-ghost">View Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">6+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Years Experience</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Tech Stacks</span></div>
       </div>
     </div>
-    <br><br>
-    <div class="home-image">
-      <img src="../Precious.jpg" alt="Portfolio Image">
-    </div>
-  </section>
-  
-<!--About section-->
-<section id="about" class="about-section">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            Hello! I’m a passionate Front-End Developer dedicated to creating beautiful, responsive, and interactive websites. With a strong foundation in HTML, CSS, and JavaScript, I bring ideas to life with clean and efficient code.
-          </p>
-          <p>
-            I specialize in building modern user interfaces with a keen eye for design and usability. Constantly learning and exploring new technologies to improve my craft.
-          </p>
-          <a href="#contact-section" class="btn btn-primary">Hire Me</a>
-        </div>
-        <div class="about-image">
-          <img src="https://th.bing.com/th/id/OIP.d1aGcWWIAWfekBFDZ6SSvgHaE8?w=241&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="About Me Image" />
-        </div>
+    <div class="hero-visual reveal">
+      <div class="hero-img-wrapper">
+        <img src="assets/precious.jpg" alt="John Precious" class="hero-img" />
+        <div class="hero-img-ring"></div>
+        <div class="hero-badge"><i class="fas fa-code"></i> Open to work</div>
       </div>
     </div>
   </section>
 
-  <!--service section-->
-  <section id="services" class="services-section">
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
     <div class="container">
-      <h2 class="section-title">My Services</h2>
+      <div class="section-label reveal">About Me</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-heading">Crafting digital experiences<br/>with clean code & bold design</h2>
+          <p>I'm a passionate Frontend Developer from Edo State, Nigeria, dedicated to building beautiful, responsive, and interactive websites. With a strong foundation in HTML, CSS, and JavaScript, I bring ideas to life with clean and efficient code.</p>
+          <p>I also build fintech and crypto platforms with Firebase, React, and Flutter — always with security and UX in mind. I'm constantly learning and exploring new technologies to sharpen my craft.</p>
+          <div class="about-tags">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span>
+            <span>Flutter/Dart</span><span>Firebase</span><span>Git</span>
+          </div>
+          <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+        </div>
+        <div class="about-cards reveal">
+          <div class="acard">
+            <i class="fas fa-laptop-code"></i>
+            <h4>Frontend Dev</h4>
+            <p>Responsive, pixel-perfect UIs built with modern web standards.</p>
+          </div>
+          <div class="acard">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Mobile Apps</h4>
+            <p>Cross-platform Flutter apps with Firebase backends.</p>
+          </div>
+          <div class="acard">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Fintech Focus</h4>
+            <p>Secure payment UIs, dashboards, and broker platforms.</p>
+          </div>
+          <div class="acard">
+            <i class="fas fa-paint-brush"></i>
+            <h4>UI Design</h4>
+            <p>Dark luxury aesthetics — design systems, animations, polish.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label reveal">What I Do</div>
+      <h2 class="section-heading text-center reveal">My Services</h2>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">💻</div>
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-icon"><i class="fas fa-code"></i></div>
           <h3>Web Development</h3>
-          <p>Building responsive, modern websites tailored to your needs.</p>
+          <p>Responsive, modern websites and web apps tailored to your goals — from landing pages to full-stack platforms.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🎨</div>
+        <div class="service-card reveal">
+          <div class="service-num">02</div>
+          <div class="service-icon"><i class="fas fa-palette"></i></div>
           <h3>UI/UX Design</h3>
-          <p>Designing user-friendly interfaces with great user experience.</p>
+          <p>User-centered interface design with a focus on great aesthetics, usability, and intuitive flows.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">⚙️</div>
-          <h3>JavaScript Animations</h3>
-          <p>Adding engaging animations and interactivity to your projects.</p>
+        <div class="service-card reveal">
+          <div class="service-num">03</div>
+          <div class="service-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Animations & Interactivity</h3>
+          <p>Engaging scroll animations, micro-interactions, and transitions that bring your product to life.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">📱</div>
+        <div class="service-card reveal">
+          <div class="service-num">04</div>
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
           <h3>Mobile Optimization</h3>
-          <p>Ensuring your site looks perfect on all devices and screens.</p>
+          <p>Pixel-perfect, fully responsive experiences that look and perform great on every device and screen size.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">05</div>
+          <div class="service-icon"><i class="fas fa-fire"></i></div>
+          <h3>Firebase & Backend</h3>
+          <p>Auth, Firestore, Cloud Functions, and real-time databases — secure and scalable backend setups.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">06</div>
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Fintech Platforms</h3>
+          <p>Crypto broker sites, trading dashboards, and fintech UIs with live data, charts, and secure flows.</p>
         </div>
       </div>
     </div>
   </section>
-  
 
-  <!--projects section-->
-  <section class="projects-section" id="project">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-      
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy1.jpeg" alt="Project 1">
-        </div>
-        <div class="project-info">
-          <h3>bright future academy</h3>
-          <p class="project-description">school website</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
-          </div>
-          <a href="https://brightfu.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy2.jpeg" alt="Project 2">
-        </div>
-        <div class="project-info">
-          <h3>ikubs footwear</h3>
-          <p class="project-description">simple E-comerce site</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
-          </div>
-          <a href="https://ikubs.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
-        </div>
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-label reveal">My Work</div>
+      <h2 class="section-heading text-center reveal">Featured Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy1.jpeg" alt="Bright Future Academy" />
+            <div class="project-overlay">
+              <a href="https://brightfu.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
             </div>
-      
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>Bright Future Academy</h3>
+            <p>A modern school website with a clean layout, course listings, and responsive design.</p>
+          </div>
+        </div>
 
-             <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy3.jpeg" alt="Project 3">
-        </div>
-        <div class="project-info">
-          <h3>Medicacare</h3>
-          <p class="project-description">A Hospital land page</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy2.jpeg" alt="Ikubs Footwear" />
+            <div class="project-overlay">
+              <a href="https://ikubs.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
+            </div>
           </div>
-          <a href="https://medicacar.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>Ikubs Footwear</h3>
+            <p>An e-commerce storefront for a footwear brand — product listings, clean cart UX.</p>
+          </div>
         </div>
-      </div>
 
-       <!-- Project 4 -->
-       <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy4.jpeg" alt="Project 4">
-        </div>
-        <div class="project-info">
-          <h3>prex fx</h3>
-          <p class="project-description">A broker website real-time analytics and live market</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy3.jpeg" alt="Medicacare" />
+            <div class="project-overlay">
+              <a href="https://medicacar.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
+            </div>
           </div>
-          <a href="https://brilliant-cuchufli-9e2c0d.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
-        </div>
-      </div>
-      
-       <!-- Project 5 -->
-       <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy5.jpeg" alt="Project 5">
-        </div>
-        <div class="project-info">
-          <h3>brokerpro</h3>
-          <p class="project-description">a simple broker page with blog/news</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>Medicacare</h3>
+            <p>A hospital landing page with booking UI, services section, and smooth animations.</p>
           </div>
-          <a href="https://brokerpro.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
         </div>
-      </div>
-      
-       <!-- Project 6 -->
-       <div class="project-card">
-        <div class="project-media">
-          <video class="project-video" autoplay loop muted playsinline>
-            <source src="" type="video/mp4">
-          </video>
-          <img class="project-image" src="../prechy6.jpeg "alt="Project 6">
-        </div>
-        <div class="project-info">
-          <h3>GlobalTrust bank</h3>
-          <p class="project-description">A demo home page of an online banking</p>
-          <div class="project-tags">
-            <span>html</span>
-            <span>css</span>
-            <span>JavaScript</span>
+
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy4.jpeg" alt="Prex FX" />
+            <div class="project-overlay">
+              <a href="https://brilliant-cuchufli-9e2c0d.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
+            </div>
           </div>
-          <a href="https://venerable-kringle-27aba1.netlify.app/" class="project-link" aria-label="View Interactive Dashboard project">
-            <span>View Case Study</span>
-            <svg><!-- arrow icon --></svg>
-          </a>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>Prex FX</h3>
+            <p>A forex broker website with real-time analytics, live market data, and dark UI.</p>
+          </div>
         </div>
+
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy5.jpeg" alt="BrokerPro" />
+            <div class="project-overlay">
+              <a href="https://brokerpro.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>BrokerPro</h3>
+            <p>A broker platform with blog/news section, trading widgets, and multi-page layout.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-img">
+            <img src="assets/prechy6.jpeg" alt="GlobalTrust Bank" />
+            <div class="project-overlay">
+              <a href="https://venerable-kringle-27aba1.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <h3>GlobalTrust Bank</h3>
+            <p>An online banking demo homepage with account overview UI and secure-feel design.</p>
+          </div>
+        </div>
+
       </div>
-      
     </div>
-    
-
-    <!--skills/ testimonies section-->
-    <section class="skills-testimonials" id="skills-testimonials">
-      <div class="floating-element circle" style="top: 10%; left: 5%;"></div>
-      <h2 class="section-title">Skills & Testimonials</h2>
-
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <!-- Skills Slide -->
-          <div class="carousel-slide skills-slide">
-            <h3>My Skills</h3>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-html5"></i>
-                </div>
-                <h4 class="skill-name">HTML5</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="95"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-css3-alt"></i>
-                </div>
-                <h4 class="skill-name">CSS3</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="90"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-js"></i>
-                </div>
-                <h4 class="skill-name">JavaScript</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="85"></div>
-                </div>
-              </div>
-
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-react"></i>
-                </div>
-                <h4 class="skill-name">React</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="50"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-github"></i>
-                </div>
-                <h4 class="skill-name">Github</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="80"></div>
-                </div>
-              </div>
-
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-git"></i>
-                </div>
-                <h4 class="skill-name">git</h4>
-                <div class="skill-level">
-                  <div class="skill-progress" data-level="70"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonials Slide -->
-          <div class="carousel-slide testimonials-slide">
-            <h3>Client Testimonials</h3>
-            <div class="testimonials-container">
-              <div class="testimonial active">
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">
-                  "Working with this developer was an absolute pleasure. They
-                  delivered our project ahead of schedule and the quality
-                  exceeded our expectations. Their attention to detail and
-                  problem-solving skills are truly exceptional."
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/44.jpg"
-                    alt="Sarah Johnson"
-                    class="author-avatar"
-                  />
-                  <div class="author-info">
-                    <h4>Sarah Johnson</h4>
-                    <p>CEO, TechSolutions Inc.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="testimonial">
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="testimonial-text">
-                  "I've worked with many developers over the years, but few have
-                  the combination of technical expertise and communication
-                  skills like this professional. They transformed our vague
-                  ideas into a beautiful, functional application."
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/32.jpg"
-                    alt="Michael Chen"
-                    class="author-avatar"
-                  />
-                  <div class="author-info">
-                    <h4>Michael Chen</h4>
-                    <p>Product Manager, InnovateCo</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="testimonial">
-                <div class="testimonial-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-                <p class="testimonial-text">
-                  "The website they built for us increased our conversion rate
-                  by 40%! Not only is it visually stunning, but the performance
-                  optimization is remarkable. We'll definitely be working with
-                  them again on future projects."
-                </p>
-                <div class="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/68.jpg"
-                    alt="Emma Rodriguez"
-                    class="author-avatar"
-                  />
-                  <div class="author-info">
-                    <h4>Emma Rodriguez</h4>
-                    <p>Marketing Director, BrightIdeas</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-nav">
-              <button class="testimonial-prev">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button class="testimonial-next">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-nav">
-          <div class="nav-dot active" data-slide="0"></div>
-          <div class="nav-dot" data-slide="1"></div>
-        </div>
-      </div>
-    </section>
-
-
-    <!--contact section-->
-    <section class="contact-section" id="contact-section">
-      <!-- Decorative floating elements -->
-      <div class="floating-element circle" style="top: 10%; left: 5%;"></div>
-      <div class="floating-element triangle" style="bottom: 15%; right: 8%;"></div>
-      
-      <div class="section-header">
-          <h2>Get In Touch</h2>
-          <p>Have a project in mind or want to collaborate? Feel free to reach out! I'm always open to discussing new opportunities and creative ideas.</p>
-      </div>
-      
-      <div class="contact-container">
-          <div class="contact-info">
-              <div class="info-box">
-                  <div class="info-icon">
-                      <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div class="info-details">
-                      <h3>Location</h3>
-                      <p>Edo state, NIgeria</p>
-                  </div>
-              </div>
-              
-              <div class="info-box">
-                  <div class="info-icon">
-                      <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="info-details">
-                      <h3>Email</h3>
-                      <a href="mailto:preciousjohnemeka2022@gmail.com">preciousjohnemeka2022@gmail.com</a>
-                  </div>
-              </div>
-              
-              <div class="info-box">
-                  <div class="info-icon">
-                      <i class="fas fa-phone-alt"></i>
-                  </div>
-                  <div class="info-details">
-                      <h3>Phone</h3>
-                      <a href="tel:+2349039342965">+234 (903) 934-2965</a>
-                  </div>
-              </div>
-              
-              <div class="social-links">
-                  <a href="https://x.com/PreciousJo52290" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                  <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-                  <a href="https://github.com/john-precious" aria-label="Github"><i class="fab fa-github"></i></a>
-                  <a href="www.linkedin.com/in/john-precious-235445289" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-          </div>
-          
-          <div class="contact-form">
-              <form id="contactForm">
-                  <div class="form-group">
-                      <label for="name">Your Name</label>
-                      <input type="text" id="name" class="form-control" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="email">Email Address</label>
-                      <input type="email" id="email" class="form-control" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="subject">Subject</label>
-                      <input type="text" id="subject" class="form-control" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="message">Your Message</label>
-                      <textarea id="message" class="form-control" required></textarea>
-                  </div>
-                  
-                  <button type="submit" class="submit-btn">
-                      Send Message <i class="fas fa-paper-plane"></i>
-                  </button>
-              </form>
-          </div>
-      </div>
   </section>
 
-
-<!--footer section-->
-<footer class="portfolio-footer">
-  <!-- Animated gradient border -->
-  <div class="footer-border"></div>
-
-  <div class="footer-content">
-    <!-- Social Links -->
-    <div class="footer-social">
-      <a href="https://x.com/PreciousJo52290" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="social-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-      <a href="https://github.com/john-precious" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="www.linkedin.com/in/john-precious-235445289" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <!-- ===== SKILLS ===== -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-label reveal">Expertise</div>
+      <h2 class="section-heading text-center reveal">Skills & Tools</h2>
+      <div class="skills-grid">
+        <div class="skill-item reveal" data-level="95">
+          <div class="skill-top"><i class="fab fa-html5"></i><span>HTML5</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="90">
+          <div class="skill-top"><i class="fab fa-css3-alt"></i><span>CSS3</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="85">
+          <div class="skill-top"><i class="fab fa-js"></i><span>JavaScript</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="60">
+          <div class="skill-top"><i class="fab fa-react"></i><span>React</span><span class="skill-pct">60%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="60"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="75">
+          <div class="skill-top"><i class="fas fa-mobile-alt"></i><span>Flutter/Dart</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="70">
+          <div class="skill-top"><i class="fas fa-fire"></i><span>Firebase</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="80">
+          <div class="skill-top"><i class="fab fa-github"></i><span>Git / GitHub</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+        </div>
+        <div class="skill-item reveal" data-level="65">
+          <div class="skill-top"><i class="fas fa-server"></i><span>REST APIs</span><span class="skill-pct">65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="65"></div></div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Copyright + Fun CTA -->
-    <div class="footer-meta">
-      <p>© 2025 John Precious. Crafted with <span class="heart">♥️</span> and too much coffee.</p>
-      <button class="footer-cta">Hire Me!</button>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label reveal">Get In Touch</div>
+      <h2 class="section-heading text-center reveal">Let's Build Something Great</h2>
+      <p class="contact-sub reveal">Have a project in mind or want to collaborate? Drop me a message — I respond within 24 hours.</p>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><h4>Location</h4><p>Edo State, Nigeria</p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div><h4>Email</h4><a href="mailto:preciousjohnemeka2022@gmail.com">preciousjohnemeka2022@gmail.com</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+            <div><h4>Phone</h4><a href="tel:+2349039342965">+234 903 934 2965</a></div>
+          </div>
+          <div class="social-row">
+            <a href="https://x.com/PreciousJo52290" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/john-precious" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/john-precious-235445289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="Project enquiry" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
     </div>
+  </section>
 
-    <!-- Back-to-top arrow (animated) -->
-    <a href="#top" class="back-to-top" aria-label="Back to top">
-      <i class="fas fa-arrow-up"></i>
-    </a>
-  </div>
-</footer>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <span class="logo">JP<span class="dot">.</span></span>
+        <p>Building the web, one pixel at a time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://x.com/PreciousJo52290" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/john-precious" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/john-precious-235445289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 John Precious · Crafted with <span class="heart">♥</span> and coffee.</p>
+    </div>
+  </footer>
 
-<script src="script.js"></script>
+  <!-- Back to top -->
+  <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
