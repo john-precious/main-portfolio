@@ -2,10 +2,13 @@
    JOHN PRECIOUS · PORTFOLIO — SCRIPT 2025
 ========================================= */
 
+const MY_WHATSAPP = '2349039342965';
+const MY_EMAIL    = 'preciousjohnemeka2022@gmail.com';
+
 /* ── THEME TOGGLE ── */
-const html       = document.documentElement;
-const themeBtn   = document.getElementById('themeToggle');
-const themeIcon  = document.getElementById('themeIcon');
+const html      = document.documentElement;
+const themeBtn  = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
 
 function applyTheme(theme) {
   html.setAttribute('data-theme', theme);
@@ -13,29 +16,23 @@ function applyTheme(theme) {
   localStorage.setItem('theme', theme);
 }
 
-// Auto: match OS, allow manual override
-const savedTheme  = localStorage.getItem('theme');
-const osPrefers   = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const savedTheme = localStorage.getItem('theme');
+const osPrefers  = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 applyTheme(savedTheme || osPrefers);
 
 themeBtn.addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  applyTheme(next);
+  applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 });
 
-// Listen for OS preference changes (only if no manual override stored)
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  if (!localStorage.getItem('theme')) {
-    applyTheme(e.matches ? 'dark' : 'light');
-  }
+  if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
 });
 
 
-/* ── NAVBAR SCROLL SHADOW ── */
+/* ── NAVBAR SCROLL ── */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 30);
-  // Back to top
   const btt = document.getElementById('backToTop');
   if (btt) btt.classList.toggle('visible', window.scrollY > 400);
 });
@@ -48,23 +45,14 @@ function toggleMenu() {
   nav.classList.toggle('open');
   btn.setAttribute('aria-expanded', nav.classList.contains('open'));
 }
-
-// Close on nav link click
 document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  });
+  link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
 
 /* ── TYPEWRITER ── */
-const roles = [
-  'Frontend Developer',
-  'UI/UX Designer',
-  'Flutter Developer',
-  'Fintech Builder'
-];
-let roleIdx = 0, charIdx = 0, deleting = false;
+const roles   = ['Frontend Developer','UI/UX Designer','Flutter Developer','Fintech Builder'];
+let roleIdx   = 0, charIdx = 0, deleting = false;
 const typedEl = document.getElementById('typed-text');
 
 function typeEffect() {
@@ -84,82 +72,186 @@ typeEffect();
 
 
 /* ── SCROLL REVEAL ── */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Stagger children inside containers
-      const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay);
+      entry.target.classList.add('visible');
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  revealObserver.observe(el);
-});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 
 /* ── SKILL BARS ── */
-const skillObserver = new IntersectionObserver((entries) => {
+const skillObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.querySelectorAll('.skill-fill').forEach(bar => {
         const lvl = bar.getAttribute('data-level');
         setTimeout(() => { bar.style.width = lvl + '%'; }, 200);
       });
-      skillObserver.unobserve(entry.target);
+      skillObs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
-
 const skillsSection = document.querySelector('.skills');
-if (skillsSection) skillObserver.observe(skillsSection);
+if (skillsSection) skillObs.observe(skillsSection);
 
 
-/* ── CONTACT FORM ── */
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
-    const original = btn.innerHTML;
-
-    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending…';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-      btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
-      contactForm.reset();
-
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
-    }, 1500);
-  });
-}
-
-
-/* ── ACTIVE NAV LINK ON SCROLL ── */
+/* ── ACTIVE NAV LINK ── */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
-
-const sectionObserver = new IntersectionObserver((entries) => {
+const secObs   = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + entry.target.id) {
-          link.classList.add('active');
-        }
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
       });
     }
   });
 }, { threshold: 0.4 });
+sections.forEach(s => secObs.observe(s));
 
-sections.forEach(s => sectionObserver.observe(s));
+
+/* ── COPY EMAIL BUTTON ── */
+const copyBtn = document.getElementById('copyEmail');
+if (copyBtn) {
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(copyBtn.dataset.copy).then(() => {
+      copyBtn.classList.add('copied');
+      setTimeout(() => copyBtn.classList.remove('copied'), 2000);
+    });
+  });
+}
+
+
+/* ── FUN FACT TICKER ── */
+const funFacts = [
+  'I build UIs faster with coffee ☕',
+  'Dark mode is my natural habitat 🌙',
+  'I\'ve shipped 6+ live projects 🚀',
+  'I speak HTML, CSS, JS & Dart fluently 💬',
+  'I once fixed a CORS bug at 2 AM 🐛',
+  'Available for remote work worldwide 🌍',
+  'I care deeply about pixel-perfect details ✨',
+];
+let factIdx = 0;
+const tickerEl = document.getElementById('funTicker');
+if (tickerEl) {
+  setInterval(() => {
+    tickerEl.style.opacity = '0';
+    setTimeout(() => {
+      factIdx = (factIdx + 1) % funFacts.length;
+      tickerEl.textContent = funFacts[factIdx];
+      tickerEl.style.opacity = '1';
+    }, 400);
+  }, 3500);
+}
+
+
+/* ── CHARACTER COUNT ── */
+const msgArea   = document.getElementById('message');
+const charCount = document.getElementById('charCount');
+const MAX_CHARS = 500;
+if (msgArea && charCount) {
+  msgArea.addEventListener('input', () => {
+    const len = msgArea.value.length;
+    charCount.textContent = `${len} / ${MAX_CHARS}`;
+    charCount.classList.toggle('over', len > MAX_CHARS);
+    if (len > MAX_CHARS) msgArea.value = msgArea.value.slice(0, MAX_CHARS);
+  });
+}
+
+
+/* ── CONTACT FORM HELPERS ── */
+function getFormData() {
+  return {
+    name:    document.getElementById('name')?.value.trim()    || '',
+    email:   document.getElementById('email')?.value.trim()   || '',
+    subject: document.getElementById('subject')?.value.trim() || '',
+    message: document.getElementById('message')?.value.trim() || '',
+  };
+}
+
+function validateForm(data) {
+  if (!data.name)    { alert('Please enter your name.'); return false; }
+  if (!data.email || !/\S+@\S+\.\S+/.test(data.email)) { alert('Please enter a valid email.'); return false; }
+  if (!data.subject) { alert('Please enter a subject.'); return false; }
+  if (!data.message) { alert('Please enter a message.'); return false; }
+  return true;
+}
+
+function buildWaMessage(d) {
+  return encodeURIComponent(
+    `Hi John! 👋\n\nName: ${d.name}\nEmail: ${d.email}\n\nSubject: ${d.subject}\n\nMessage:\n${d.message}`
+  );
+}
+
+function buildMailtoLink(d) {
+  const subject = encodeURIComponent(`[Portfolio] ${d.subject} — from ${d.name}`);
+  const body    = encodeURIComponent(
+    `Hi John,\n\nMy name is ${d.name} and I'm reaching out via your portfolio.\n\nSubject: ${d.subject}\n\nMessage:\n${d.message}\n\nBest regards,\n${d.name}\n${d.email}`
+  );
+  return `mailto:${MY_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+function showSuccess(btn, label = 'Sent! ✓') {
+  const orig = btn.innerHTML;
+  btn.innerHTML = `<i class="fas fa-check"></i> ${label}`;
+  btn.disabled  = true;
+  setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 3000);
+}
+
+function openBoth(data) {
+  window.open(`https://wa.me/${MY_WHATSAPP}?text=${buildWaMessage(data)}`, '_blank');
+  setTimeout(() => { window.location.href = buildMailtoLink(data); }, 600);
+}
+
+
+/* ── SEND VIA WHATSAPP ── */
+document.getElementById('sendWa')?.addEventListener('click', () => {
+  const data = getFormData();
+  if (!validateForm(data)) return;
+  window.open(`https://wa.me/${MY_WHATSAPP}?text=${buildWaMessage(data)}`, '_blank');
+  showSuccess(document.getElementById('sendWa'), 'Opening WhatsApp…');
+});
+
+
+/* ── SEND VIA EMAIL ── */
+document.getElementById('sendEmail')?.addEventListener('click', () => {
+  const data = getFormData();
+  if (!validateForm(data)) return;
+  window.location.href = buildMailtoLink(data);
+  showSuccess(document.getElementById('sendEmail'), 'Opening Email…');
+});
+
+
+/* ── SEND TO BOTH (form submit) ── */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = getFormData();
+    if (!validateForm(data)) return;
+
+    const btn  = document.getElementById('sendBoth');
+    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending…';
+    btn.disabled  = true;
+
+    setTimeout(() => {
+      openBoth(data);
+      btn.innerHTML = '<i class="fas fa-check"></i> Sent to Both!';
+      contactForm.classList.add('sent');
+      contactForm.reset();
+      if (charCount) charCount.textContent = `0 / ${MAX_CHARS}`;
+
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send to Both';
+        btn.disabled  = false;
+        contactForm.classList.remove('sent');
+      }, 4000);
+    }, 800);
+  });
+}
